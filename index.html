@@ -7,33 +7,40 @@
   <script src="main.js"></script>
 </head>
 <body>
-<div id="time"></div>
-<div id="date"></div>
+<!-- <div id="header"></div> -->
+<div id="center">
+  <div id="time"></div>
+  <div id="date"></div>
+</div>
 <div id="weather_info">
 <span id="city">Raleigh, NC</span>
 <ul id="info">
   <li>
-    <span id="conditions"></span>
+    <span id="conditions">Sunny with a chance of poop</span>
   </li>
   <li>
-    <span id="temp"></span>
-  </li>
-</ul>
-<ul id="forecast">
-  <li>
-    <span id="day1"></span>
-  </li>
-  <li>
-    <span id="day2"></span>
-  </li>
-  <li>
-    <span id="day3"></span>
-  </li>
-  <li>
-    <span id="day4"></span>
+    <span id="temp">39&deg;F</span>
   </li>
 </ul>
 </div>
+<table id="days" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="weekday"></td>
+    <td class="description"></td>
+  </tr>
+  <tr>
+    <td class="weekday"></td>
+    <td class="description"></td>
+  </tr>
+  <tr>
+    <td class="weekday"></td>
+    <td class="description"></td>
+  </tr>
+  <tr>
+    <td class="weekday"></td>
+    <td class="description"></td>
+  </tr>
+</table>
 <a href="#" onclick="showNews()"><div id="npr">News</div></a>
 <div id="pane">
   <div id="stories">

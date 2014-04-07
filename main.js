@@ -66,7 +66,8 @@ function displayWeather(data) {
 function displayForecast(data) {
   var data = data.forecast.simpleforecast.forecastday;
   for (var i = 0; i < Forecast.length; i++) {
-    Forecast[i].innerHTML = "<b>" + data[i].date.weekday + "</b>: " + data[i].conditions.toLowerCase() + " with a high of " + data[i].high.fahrenheit + "&deg;F and a low of " + data[i].low.fahrenheit + "&deg;F";
+    Forecast[i].firstElementChild.innerHTML = data[i].date.weekday + ":";
+    Forecast[i].children[1].innerHTML = data[i].conditions.toLowerCase() + " with a high of " + data[i].high.fahrenheit + "&deg;F and a low of " + data[i].low.fahrenheit + "&deg;F";
   }
 }
 
@@ -133,12 +134,8 @@ document.addEventListener("DOMContentLoaded", function() {
     temp: document.getElementById("temp"),
     city: document.getElementById("city")
   };
-  Forecast = [
-    document.getElementById("day1"),
-    document.getElementById("day2"),
-    document.getElementById("day3"),
-    document.getElementById("day4")
-  ];
+  Forecast = document.getElementsByTagName("table")[0].firstElementChild.children;
+  console.log(Forecast);
   getWeather();
   getForecast();
 });

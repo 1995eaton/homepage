@@ -8,9 +8,9 @@ app = Flask(__name__)
 weather = ""
 forecast = ""
 
-key = ""
-state = ""
-city = ""
+key = "bc44ed16905a54b8"
+state = "NC"
+city = "Raleigh"
 
 class getWeather(Thread):
 
