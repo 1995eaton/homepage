@@ -1,0 +1,135 @@
+body {
+  font-family: Helvetica Neue, Neue, Sans, Arial;
+  font-weight: 100;
+  text-shadow: 1px 2px 2px rgba(0,0,0,0.3);
+  overflow: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background-color: #1b1d1e;
+  color: #fff;
+}
+
+#time {
+  position: absolute;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  font-size: 82pt;
+  text-shadow: 1px 2px 2px #000;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  display:box;
+  box-pack:center;
+  box-align:center;
+  display:-moz-box;
+  -moz-box-pack:center;
+  -moz-box-align:center;
+  display:-ms-flexbox;
+  -ms-flex-pack:center;
+  -ms-flex-align:center;
+}
+#date {
+  font-size: 42pt;
+  width: 100%; left: 0;
+  height: 95%;
+  top: 5%;
+  position: absolute;
+  text-shadow: 1px 2px 2px #000;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  display:box;
+  box-pack:center;
+  box-align:center;
+  display:-moz-box;
+  -moz-box-pack:center;
+  -moz-box-align:center;
+  display:-ms-flexbox;
+  -ms-flex-pack:center;
+  -ms-flex-align:center;
+}
+
+#weather_info {
+  position: absolute;
+  left: 0; top: 0;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+#city {
+  font-size: 18pt;
+}
+
+#info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 20px;
+}
+
+#temp {
+  left: 0;
+  top: 0;
+  text-indent: 20px;
+}
+
+#forecast {
+  top: 10px;
+  position: absolute;
+  left: 175px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 800px;
+  height: 500px;
+}
+
+#npr {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 5px;
+  padding-right: 10px;
+  transition: color 0.2s ease-out;
+  font-size: 18pt;
+}
+
+#npr:hover {
+  color: #ff0000;
+}
+
+#pane {
+  position: absolute;
+  width: 100%; left: 0;
+  height: 100%; top: 0;
+  background-color: rgba(0,0,0,0.75);
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  display: none;
+}
+
+#stories {
+  width: 1200px;
+  background-color: #bbb;
+  overflow: auto;
+  height: 100%; top: 0;
+  left: 0; right: 0;
+  position: absolute;
+  margin: 0 auto;
+}
+
+#stories ul, #stories li {
+  list-style: none;
+  color: #333;
+  font-size: 13pt;
+  padding-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#stories a {
+  color: #444;
+}
