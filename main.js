@@ -31,7 +31,8 @@ function hackerAppend(data) {
     var li = document.createElement("li");
     var a = document.createElement("a");
     a.href = data[i].url;
-    a.innerHTML = "(" + data[i].points + ") " + data[i].title + ' <a href="https://news.ycombinator.com/item?id="' + data[i].id + '">[comments]</a>';
+    console.log(data[i]);
+    a.innerHTML = "<span style=\"color: black;\">(" + data[i].points + ")</span> " + data[i].title + ' <a href="https://news.ycombinator.com/item?id=' + data[i].id.toString() + '">[comments]</a>';
     li.appendChild(a);
     newsStories.appendChild(li);
   }
@@ -47,12 +48,14 @@ function getNews() {
 function showNews() {
   if (newsPane.style.opacity === "1") {
     fadeOut = true;
+    document.getElementById("stories-bg").style.opacity = "0";
     return newsPane.style.opacity = "0";
   }
   getNews();
   fadeOut = false;
   newsPane.style.display = "block";
   setTimeout(function() {
+    document.getElementById("stories-bg").style.opacity = "1";
     newsPane.style.opacity = "1";
   }, 5);
 }
@@ -73,7 +76,7 @@ function displayForecast(data) {
 
 function getWeather() {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "/weather");
+  xhr.open("POST", "/weather-post");
   var f = new FormData();
   f.append("arg", "get_weather");
   xhr.onreadystatechange = function() {
@@ -86,7 +89,7 @@ function getWeather() {
 
 function getForecast() {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "/weather");
+  xhr.open("POST", "/weather-post");
   var f = new FormData();
   f.append("arg", "get_forecast");
   xhr.onreadystatechange = function() {
@@ -104,9 +107,10 @@ function timeStart() {
   }
   (function loop() {
     date = new Date();
-    d = ((date.getHours() % 12) || 12).toString() + ":" +
-        padZeroes(date.getMinutes().toString()) + ":" +
-        padZeroes(date.getSeconds().toString());
+    var hours = date.getHours();
+    var ampm = hours >= 12 ? "PM" : "AM";
+    d = ((hours % 12) || 12).toString() + ":" +
+        padZeroes(date.getMinutes().toString()) + " " + ampm;
     time.innerHTML = d;
     dateEl.innerHTML = "<span id='date'><br>" + Month[date.getMonth()] + " " +  date.getDate() + ", " + date.getFullYear() +  "</span>";
     setTimeout(function() {

@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify
 from threading import Thread
 from requests import get
 from time import sleep
+import sys
+
+sys.setrecursionlimit(100000)
 
 app = Flask(__name__)
 
@@ -28,7 +31,7 @@ class getWeather(Thread):
         return self.run()
 
 
-@app.route("/weather", methods=['POST'])
+@app.route("/weather-post", methods=['POST'])
 def init():
     if request.form['arg'] == "get_weather":
         return weather
